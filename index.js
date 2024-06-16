@@ -27,8 +27,14 @@ require('express-async-errors')
 /* ------------------------------------------------------- */
 // Middlewares:
 
+//Template Engine
+app.set('view engine', 'ejs')
+
 // Accept JSON:
 app.use(express.json())
+
+//static dosyaların yeri
+app.use(express.static("public"));//burda join yerine resolve da kullanılabilir
 
 // Call static uploadFile:
 // app.use('/upload', express.static('./upload'))
@@ -47,16 +53,10 @@ app.use(express.json())
 
 // HomePath:
 app.all('/', (req, res) => {
-    res.send({
-        error: false,
-        message: 'Welcome to PhotoAPP',
-        documents: {
-            swagger: '/documents/swagger',
-            redoc: '/documents/redoc',
-            json: '/documents/json',
-        },
-        user: req.user
-    })
+    res.render("index")
+})
+app.all('/about', (req, res) => {
+    res.render("about")
 })
 
 // Routes:
