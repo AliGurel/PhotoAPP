@@ -21,8 +21,8 @@ require('express-async-errors')
 // Configrations:
 
 // Connect to DB:
-// const { dbConnection } = require('./src/configs/dbConnection')
-// dbConnection()
+const { dbConnection } = require('./src/configs/dbConnection')
+dbConnection()
 
 /* ------------------------------------------------------- */
 // Middlewares:
@@ -52,15 +52,23 @@ app.use(express.static("public"));//burda join yerine resolve da kullanılabilir
 // Routes:
 
 // HomePath:
+/*
 app.all('/', (req, res) => {
-    res.render("index")
+    res.send({
+        error: false,
+        message: 'Welcome to Stock Management API',
+        documents: {
+            swagger: '/documents/swagger',
+            redoc: '/documents/redoc',
+            json: '/documents/json',
+        },
+        user: req.user
+    })
 })
-app.all('/about', (req, res) => {
-    res.render("about")
-})
+*/
 
 // Routes:
-// app.use(require('./src/routes'))
+app.use(require('./src/routes'))
 
 /* ------------------------------------------------------- */
 
