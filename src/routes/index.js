@@ -14,8 +14,8 @@ router.use('/',require('./pageRoutes'))
 // router.use('/auth', require('./auth'))
 // // user:
 // router.use('/users', require('./user'))
-// //category
-// router.use('/categories', require('./category'))
+//category
+router.use('/photos', require('./photoRouter'))
 // // firm:
 // router.use('/firms', require('./firm'))
 // // brand:

@@ -46,7 +46,7 @@ app.use(express.static("public"));//burda join yerine resolve da kullanılabilir
 // app.use(require('./src/middlewares/logger'))
 
 // res.getModelList():
-// app.use(require('./src/middlewares/findSearchSortPage'))
+app.use(require('./src/middlewares/findSearchSortPage'))
 
 /* ------------------------------------------------------- */
 // Routes:
